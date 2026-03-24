@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aura — Assistant IA Local</title>
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body>
+
+  <!-- ─── Background animated gradient ─── -->
+  <div class="bg-gradient" aria-hidden="true"></div>
+
+  <div class="app-layout">
+
+    <!-- ════════════════════════════════════
+         SIDEBAR
+    ═══════════════════════════════════════ -->
+    <aside class="sidebar glass">
+      <div class="sidebar__logo">
+        <span class="logo-icon">✦</span>
+        <span class="logo-text">Aura</span>
+        <span class="logo-badge">IA Locale</span>
+      </div>
+
+      <nav class="sidebar__nav">
+        <button id="clear-session-btn" class="sidebar__btn" title="Nouvelle conversation">
+          <span class="btn-icon">＋</span> Nouvelle conv.
+        </button>
+      </nav>
+
+      <!-- Sélection du modèle -->
+      <div class="sidebar__section">
+        <label class="sidebar__label" for="model-select">Modèle LLM</label>
+        <select id="model-select" class="sidebar__select glass-input">
+          <option value="mistral">mistral</option>
+        </select>
+      </div>
+
+      <!-- Upload PDF (RAG) -->
+      <div class="sidebar__section">
+        <label class="sidebar__label">Document (RAG)</label>
+        <label class="upload-btn glass-input" for="pdf-upload" title="Charger un PDF">
+          <span class="btn-icon">📄</span> Charger un PDF
+          <input type="file" id="pdf-upload" accept=".pdf" hidden />
+        </label>
+        <div id="upload-status" class="upload-status" style="display:none;"></div>
+      </div>
+
+      <!-- Upload Image (Vision) -->
+      <div class="sidebar__section">
+        <label class="sidebar__label">Image (Vision)</label>
+        <label class="upload-btn glass-input" for="image-upload" title="Analyser une image">
+          <span class="btn-icon">🖼️</span> Envoyer une image
+          <input type="file" id="image-upload" accept="image/*" hidden />
+        </label>
+      </div>
+
+      <footer class="sidebar__footer">
+        <span class="footer-badge">🔒 100% Local · Air-gapped</span>
+      </footer>
+    </aside>
+
+    <!-- ════════════════════════════════════
+         ZONE PRINCIPALE
+    ═══════════════════════════════════════ -->
+    <main class="main-panel">
+
+      <!-- En-tête -->
+      <header class="chat-header glass">
+        <h1 class="chat-title">Aura <span class="chat-subtitle">— Assistant IA Privé</span></h1>
+        <p class="chat-desc">Vos données restent sur votre machine. Aucune requête externe.</p>
+      </header>
+
+      <!-- Messages -->
+      <section id="chat-messages" class="chat-messages" role="log" aria-live="polite">
+        <div class="system-notice">
+          Bonjour ! Je suis Aura, votre assistant IA local. Comment puis-je vous aider ?
+        </div>
+      </section>
+
+      <!-- Zone de saisie -->
+      <div class="input-area glass">
+        <textarea
+          id="user-input"
+          class="input-area__textarea"
+          placeholder="Écrivez votre message… (Shift+Entrée pour un saut de ligne)"
+          rows="3"
+          maxlength="4000"
+          aria-label="Message utilisateur"
+        ></textarea>
+
+        <div class="input-area__footer">
+          <span id="char-counter" class="char-counter">0 / 4000</span>
+          <div class="input-area__actions">
+            <button id="stop-btn" class="btn btn--danger" style="display:none;" aria-label="Arrêter la génération">
+              ⏹ Arrêter
+            </button>
+            <button id="send-btn" class="btn btn--primary" aria-label="Envoyer le message">
+              Envoyer ➤
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="/static/frontend_logic.js"></script>
+</body>
+</html>
