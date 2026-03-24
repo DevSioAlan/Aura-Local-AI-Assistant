@@ -1,6 +1,6 @@
 # 🧠 Aura - Assistant IA Local (Enterprise Portal)
 
-> ⚠️ **Note :** Ce dépôt sert de vitrine technique pour mon portfolio. Pour des raisons de confidentialité, il ne contient pas l'application complète, mais présente **l'architecture et les extraits de code majeurs** (Snippets) illustrant la logique métier que j'ai développée.
+> ⚠️ **Note :** Pour des raisons de confidentialité, il ne contient pas l'application complète, mais présente **l'architecture et les extraits de code majeurs** (Snippets) illustrant la logique métier que Alan développe.
 
 ## 🎯 Contexte du Projet
 
